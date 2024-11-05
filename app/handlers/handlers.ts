@@ -12,11 +12,11 @@ export function tryDemoVersion(isDemo: boolean) {
 
 export function getAllShips() {
   let demoShips;
+  let userShips
 
   if (tryDemoVersion(true)) {
-    demoShips = ships;
-    console.log(demoShips);
+    return demoShips = ships
   }
 
-  return demoShips;
+  return userShips;
 }

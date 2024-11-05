@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Header from "./components/header";
-import SideNavigation from "./components/sideNavigation";
+
 import HomeNavigation from "./components/homeNavigation";
 import HomeInfo from "./components/info/homeInfo";
 

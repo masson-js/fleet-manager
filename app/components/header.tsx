@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { LoginButton } from "./buttons";
+import { LoginButton, RegistrationButton } from "./buttons";
+import Registration from "../registration/page";
 
 export default function Header() {
-  const buttonStyle = "hover:bg-slate-700 hover:border-slate-700 transition duration-500 ease-in-out text-base font-bold text-slate-600 px-10 py-2 border-2 rounded-lg border-gray-400 cursor-pointer";
+  
 
   return (
-    <header className="flex bg-slate-200 h-16 justify-end items-center">
-      <nav className="mx-8">
+    <header className="flex bg-gray-200 h-16 justify-end items-center">
+      <nav className="flex mx-8 gap-4">
         <LoginButton/>
+        <RegistrationButton/>
       </nav>
     </header>
   );

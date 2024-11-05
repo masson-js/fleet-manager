@@ -1,20 +1,576 @@
 [
   {
-      "id": 1,
-      "name": "Astra",
-      "year": "2004",
-      "type": "tanker"
+    "id": 1,
+    "name": "SS Ocean Explorer",
+    "type": "Container Ship",
+    "flag": "Liberia",
+    "imoNumber": "9123456",
+    "deadweight": 75000,
+    "length": 300.0,
+    "width": 40.0,
+    "yearBuilt": 2010,
+    "currentStatus": "On the Way",
+    "portOfRegistry": "Monrovia",
+    "ecoStandard": "IMO 2020",
+    "fuelRecords": [
+      {
+        "date": "2024-01-15",
+        "fuelType": "Marine Diesel Oil",
+        "quantity": 10000,
+        "consumption": 300
+      },
+      {
+        "date": "2024-02-20",
+        "fuelType": "Heavy Fuel Oil",
+        "quantity": 15000,
+        "consumption": 450
+      }
+    ],
+    "routes": [
+      {
+        "routeName": "North America to Asia",
+        "ports": ["Los Angeles", "Tokyo"],
+        "duration": 5500
+      },
+      {
+        "routeName": "Africa to Europe",
+        "ports": ["Cape Town", "Hamburg"],
+        "duration": 6800
+      },
+      {
+        "routeName": "South America to North America",
+        "ports": ["Rio de Janeiro", "Miami"],
+        "duration": 4500
+      },
+      {
+        "routeName": "Europe to Middle East",
+        "ports": ["London", "Doha"],
+        "duration": 3600
+      },
+      {
+        "routeName": "Southeast Asia to South Korea",
+        "ports": ["Kuala Lumpur", "Busan"],
+        "duration": 4200
+      },
+      {
+        "routeName": "Caribbean to North America",
+        "ports": ["Havana", "New Orleans"],
+        "duration": 600
+      },
+      {
+        "routeName": "Indian Ocean to Australia",
+        "ports": ["Mauritius", "Perth"],
+        "duration": 5000
+      },
+      {
+        "routeName": "Mediterranean to North Africa",
+        "ports": ["Barcelona", "Cairo"],
+        "duration": 1300
+      },
+      {
+        "routeName": "North Sea to Atlantic",
+        "ports": ["Amsterdam", "New York"],
+        "duration": 3800
+      },
+      {
+        "routeName": "South Pacific to Asia",
+        "ports": ["Fiji", "Suva"],
+        "duration": 200
+      }
+    ],
+    "certifications": [
+      {
+        "certificationType": "ISM Code",
+        "issuedBy": "Det Norske Veritas",
+        "issueDate": "2023-01-01",
+        "expiryDate": "2026-01-01"
+      },
+      {
+        "certificationType": "MARPOL",
+        "issuedBy": "Lloyd's Register",
+        "issueDate": "2023-03-01",
+        "expiryDate": "2028-03-01"
+      }
+    ],
+    "inspections": [
+      {
+        "inspectionDate": "2023-10-01",
+        "inspectionType": "Annual Survey",
+        "result": "Passed",
+        "inspector": "ABS"
+      },
+      {
+        "inspectionDate": "2023-05-15",
+        "inspectionType": "Port State Control",
+        "result": "Passed",
+        "inspector": "USCG"
+      }
+    ],
+    "fixtures": [
+      {
+        "fixtureType": "Charter",
+        "charterer": "Maersk Line",
+        "startDate": "2023-11-01",
+        "endDate": "2024-11-01"
+      }
+    ],
+    "crew": [
+      {
+        "name": "John Doe",
+        "role": "Captain",
+        "nationality": "USA",
+        "experience": 15,
+        "certifications": ["Master Mariner"]
+      },
+      {
+        "name": "Jane Smith",
+        "role": "Chief Engineer",
+        "nationality": "UK",
+        "experience": 10,
+        "certifications": ["Chief Engineer Class 1"]
+      }
+    ],
+    "logbooks": [
+      {
+        "date": "2024-02-01",
+        "entry": "Routine maintenance performed.",
+        "loggedBy": "Chief Engineer"
+      },
+      {
+        "date": "2024-02-05",
+        "entry": "Arrived in Hamburg.",
+        "loggedBy": "Captain"
+      }
+    ]
   },
   {
-      "id": 2,
-      "name": "Betta",
-      "year": "2004",
-      "type": "bulker"
+    "id": 2,
+    "name": "MV Global Trader",
+    "type": "Bulk Carrier",
+    "flag": "Panama",
+    "imoNumber": "9123457",
+    "deadweight": 82000,
+    "length": 292.0,
+    "width": 45.0,
+    "yearBuilt": 2012,
+    "currentStatus": "In Service",
+    "portOfRegistry": "Panama City",
+    "ecoStandard": "IMO 2020",
+    "fuelRecords": [
+      {
+        "date": "2024-01-10",
+        "fuelType": "Marine Diesel Oil",
+        "quantity": 12000,
+        "consumption": 320
+      },
+      {
+        "date": "2024-02-22",
+        "fuelType": "Heavy Fuel Oil",
+        "quantity": 16000,
+        "consumption": 460
+      }
+    ],
+    "routes": [
+      {
+        "routeName": "East Coast to West Coast",
+        "ports": ["New York", "San Francisco"],
+        "duration": 2900
+      },
+      {
+        "routeName": "Central America to South America",
+        "ports": ["Panama City", "Lima"],
+        "duration": 2500
+      },
+      {
+        "routeName": "West Africa to Europe",
+        "ports": ["Lagos", "Lisbon"],
+        "duration": 3300
+      },
+      {
+        "routeName": "Australia to New Zealand",
+        "ports": ["Sydney", "Auckland"],
+        "duration": 1100
+      },
+      {
+        "routeName": "Southeast Asia to Middle East",
+        "ports": ["Singapore", "Dubai"],
+        "duration": 3500
+      },
+      {
+        "routeName": "Baltic Sea to North Sea",
+        "ports": ["Tallinn", "Copenhagen"],
+        "duration": 500
+      },
+      {
+        "routeName": "South America to Africa",
+        "ports": ["Buenos Aires", "Cape Town"],
+        "duration": 5900
+      },
+      {
+        "routeName": "Mediterranean to Asia",
+        "ports": ["Genoa", "Istanbul"],
+        "duration": 800
+      },
+      {
+        "routeName": "Caribbean to Central America",
+        "ports": ["Cartagena", "Havana"],
+        "duration": 900
+      },
+      {
+        "routeName": "Eastern Canada to Europe",
+        "ports": ["Halifax", "Southampton"],
+        "duration": 2900
+      }
+    ],
+    "certifications": [
+      {
+        "certificationType": "ISM Code",
+        "issuedBy": "Bureau Veritas",
+        "issueDate": "2022-01-10",
+        "expiryDate": "2025-01-10"
+      },
+      {
+        "certificationType": "SOLAS",
+        "issuedBy": "Lloyd's Register",
+        "issueDate": "2022-03-15",
+        "expiryDate": "2026-03-15"
+      }
+    ],
+    "inspections": [
+      {
+        "inspectionDate": "2023-09-01",
+        "inspectionType": "Annual Survey",
+        "result": "Passed",
+        "inspector": "BV"
+      },
+      {
+        "inspectionDate": "2023-06-10",
+        "inspectionType": "Port State Control",
+        "result": "No",
+        "inspector": "Paris MoU"
+      }
+    ],
+    "fixtures": [
+      {
+        "fixtureType": "Voyage Charter",
+        "charterer": "Cargill",
+        "startDate": "2024-01-15",
+        "endDate": "2024-04-15"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Alexander Ivanov",
+        "role": "Captain",
+        "nationality": "Russia",
+        "experience": 12,
+        "certifications": ["Master Mariner"]
+      },
+      {
+        "name": "Linda Brown",
+        "role": "Chief Officer",
+        "nationality": "Canada",
+        "experience": 9,
+        "certifications": ["Chief Officer Class 1"]
+      }
+    ],
+    "logbooks": [
+      {
+        "date": "2024-02-03",
+        "entry": "Arrived in Rotterdam.",
+        "loggedBy": "Captain"
+      },
+      {
+        "date": "2024-02-07",
+        "entry": "Cargo unloaded.",
+        "loggedBy": "Chief Officer"
+      }
+    ]
   },
   {
-      "id": 3,
-      "name": "Proxima",
-      "year": "2001",
-      "type": "container"
+    "id": 3,
+    "name": "SS Liberty",
+    "type": "Tanker",
+    "flag": "Marshall Islands",
+    "imoNumber": "9123458",
+    "deadweight": 150000,
+    "length": 340.0,
+    "width": 60.0,
+    "yearBuilt": 2015,
+    "currentStatus": "In Port",
+    "portOfRegistry": "Majuro",
+    "ecoStandard": "IMO 2020",
+    "fuelRecords": [
+      {
+        "date": "2024-01-18",
+        "fuelType": "Marine Diesel Oil",
+        "quantity": 13000,
+        "consumption": 350
+      },
+      {
+        "date": "2024-02-28",
+        "fuelType": "Heavy Fuel Oil",
+        "quantity": 18000,
+        "consumption": 500
+      }
+    ],
+    "routes": [
+      {
+        "routeName": "Australia to Asia",
+        "ports": ["Sydney", "Singapore"],
+        "duration": 3700
+      },
+      {
+        "routeName": "Middle East to Europe",
+        "ports": ["Dubai", "Rotterdam"],
+        "duration": 7000
+      },
+      {
+        "routeName": "East Coast USA to Europe",
+        "ports": ["New York", "London"],
+        "duration": 3600
+      },
+      {
+        "routeName": "Southeast Asia to Australia",
+        "ports": ["Bangkok", "Melbourne"],
+        "duration": 5600
+      },
+      {
+        "routeName": "South America to Asia",
+        "ports": ["Buenos Aires", "Shanghai"],
+        "duration": 8000
+      }
+    ],
+    "certifications": [
+      {
+        "certificationType": "Oil Pollution Prevention",
+        "issuedBy": "Det Norske Veritas",
+        "issueDate": "2021-05-10",
+        "expiryDate": "2024-05-10"
+      },
+      {
+        "certificationType": "Ballast Water Management",
+        "issuedBy": "ABS",
+        "issueDate": "2022-02-18",
+        "expiryDate": "2027-02-18"
+      }
+    ],
+    "inspections": [
+      {
+        "inspectionDate": "2023-08-20",
+        "inspectionType": "Safety Equipment",
+        "result": "Passed",
+        "inspector": "DNV"
+      }
+    ],
+    "fixtures": [
+      {
+        "fixtureType": "Bareboat Charter",
+        "charterer": "Chevron",
+        "startDate": "2023-12-01",
+        "endDate": "2024-12-01"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Carlos Martinez",
+        "role": "Chief Engineer",
+        "nationality": "Spain",
+        "experience": 15,
+        "certifications": ["Chief Engineer Class 1"]
+      },
+      {
+        "name": "Felicity Adams",
+        "role": "Second Officer",
+        "nationality": "Australia",
+        "experience": 8,
+        "certifications": ["Second Officer Class 2"]
+      }
+    ],
+    "logbooks": [
+      {
+        "date": "2024-01-30",
+        "entry": "Routine oil inspection completed.",
+        "loggedBy": "Chief Engineer"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "MV Blue Horizon",
+    "type": "LNG Carrier",
+    "flag": "Singapore",
+    "imoNumber": "9123459",
+    "deadweight": 92000,
+    "length": 290.0,
+    "width": 50.0,
+    "yearBuilt": 2018,
+    "currentStatus": "On the Way",
+    "portOfRegistry": "Singapore",
+    "ecoStandard": "IMO 2020",
+    "fuelRecords": [
+      {
+        "date": "2024-02-14",
+        "fuelType": "LNG",
+        "quantity": 9000,
+        "consumption": 290
+      }
+    ],
+    "routes": [
+      {
+        "routeName": "Qatar to South Korea",
+        "ports": ["Doha", "Busan"],
+        "duration": 5600
+      },
+      {
+        "routeName": "United States to Europe",
+        "ports": ["New York", "Antwerp"],
+        "duration": 3600
+      },
+      {
+        "routeName": "Australia to Asia",
+        "ports": ["Sydney", "Shanghai"],
+        "duration": 4500
+      },
+      {
+        "routeName": "South America to North America",
+        "ports": ["Buenos Aires", "Miami"],
+        "duration": 5000
+      },
+      {
+        "routeName": "Middle East to Africa",
+        "ports": ["Dubai", "Cairo"],
+        "duration": 1500
+      }
+    ],
+    "certifications": [
+      {
+        "certificationType": "LNG Carrier",
+        "issuedBy": "ClassNK",
+        "issueDate": "2022-01-20",
+        "expiryDate": "2025-01-20"
+      }
+    ],
+    "inspections": [
+      {
+        "inspectionDate": "2023-12-01",
+        "inspectionType": "Annual Inspection",
+        "result": "Passed",
+        "inspector": "ClassNK"
+      }
+    ],
+    "fixtures": [
+      {
+        "fixtureType": "Spot Charter",
+        "charterer": "Petronas",
+        "startDate": "2024-02-20",
+        "endDate": "2024-04-20"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Susan Lee",
+        "role": "Chief Officer",
+        "nationality": "South Korea",
+        "experience": 10,
+        "certifications": ["Chief Officer Class 1"]
+      }
+    ],
+    "logbooks": [
+      {
+        "date": "2024-02-25",
+        "entry": "Loaded LNG at Doha.",
+        "loggedBy": "Chief Officer"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "MV Titan",
+    "type": "RORO Ship",
+    "flag": "Japan",
+    "imoNumber": "9123460",
+    "deadweight": 45000,
+    "length": 210.0,
+    "width": 35.0,
+    "yearBuilt": 2019,
+    "currentStatus": "In Service",
+    "portOfRegistry": "Tokyo",
+    "ecoStandard": "IMO 2020",
+    "fuelRecords": [
+      {
+        "date": "2024-03-01",
+        "fuelType": "Marine Diesel Oil",
+        "quantity": 8000,
+        "consumption": 250
+      }
+    ],
+    "routes": [
+      {
+        "routeName": "Europe to Asia",
+        "ports": ["Rotterdam", "Shanghai"],
+        "duration": 6000
+      },
+      {
+        "routeName": "South Africa to Europe",
+        "ports": ["Cape Town", "Hamburg"],
+        "duration": 5000
+      },
+      {
+        "routeName": "North America to Asia",
+        "ports": ["Los Angeles", "Tokyo"],
+        "duration": 5000
+      },
+      {
+        "routeName": "South America to Europe",
+        "ports": ["Rio de Janeiro", "Lisbon"],
+        "duration": 4200
+      },
+      {
+        "routeName": "Caribbean to United States",
+        "ports": ["Havana", "Miami"],
+        "duration": 200
+      }
+    ],
+    "certifications": [
+      {
+        "certificationType": "ISM Code",
+        "issuedBy": "Nippon Kaiji Kyokai",
+        "issueDate": "2023-02-10",
+        "expiryDate": "2026-02-10"
+      }
+    ],
+    "inspections": [
+      {
+        "inspectionDate": "2023-07-05",
+        "inspectionType": "Annual Survey",
+        "result": "Passed",
+        "inspector": "ClassNK"
+      }
+    ],
+    "fixtures": [
+      {
+        "fixtureType": "Time Charter",
+        "charterer": "Nippon Express",
+        "startDate": "2024-01-01",
+        "endDate": "2024-12-31"
+      }
+    ],
+    "crew": [
+      {
+        "name": "Kazuo Tanaka",
+        "role": "Captain",
+        "nationality": "Japan",
+        "experience": 18,
+        "certifications": ["Master Mariner"]
+      }
+    ],
+    "logbooks": [
+      {
+        "date": "2024-03-10",
+        "entry": "Arrived in Sydney.",
+        "loggedBy": "Captain"
+      }
+    ]
   }
 ]
