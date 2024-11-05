@@ -1,21 +1,20 @@
+
 import Link from "next/link";
 
-export default function HomeNavigation() {
+import { LoginButton, RegistrationButton, TryDemoButton } from "./buttons";
+
+export default  function HomeNavigation() {
+
+
   const buttonStyle =
     "w-24 h-12 border-2 rounded-lg font-bold text-center text-gray-800 border-gray-400 hover:bg-gray-500 hover:border-gray-500 hover:text-gray-100 transition duration-100 hover:duration-500 ease-in-out ";
 
   return (
     <div className="flex flex-col w-1/2 items-center bg-gray-100 min-h-screen">
       <div className="flex gap-10 mt-8">
-        <Link href="/login">
-          <button className={buttonStyle}>Log in</button>
-        </Link>
-        <Link href="/registration">
-          <button className={buttonStyle}>Sign up</button>
-        </Link>
-        <Link href="/demo">
-          <button className={buttonStyle}>Try Demo</button>
-        </Link>
+        <LoginButton/>
+        <RegistrationButton/>
+        <TryDemoButton/>
       </div>
       <div className="flex flex-col mt-8 w-96">
         <div className="flex flex-col bg-gray-200 my-2 p-4 rounded-2xl">
