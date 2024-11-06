@@ -1,11 +1,29 @@
 import Header from "../components/header";
-
 import ShipButton from "../components/shipButton";
 import SideNavigation from "../components/sideNavigation";
-import { getAllShips } from "../handlers/handlers";
+import demoData from "@/data/ships.json";
+const userData: any = [];
 
-export default async function Status() {
-  const allShips = getAllShips() || [];
+interface StatusParams {
+  demo?: string;
+  user?: string;
+}
+
+async function getShipsData(isDemo: boolean, user?: string) {
+  return isDemo ? demoData : userData;
+}
+
+export default async function Status({
+  searchParams,
+}: {
+  searchParams: StatusParams;
+}) {
+  const params = await searchParams;
+
+  const isDemo = params?.demo === "true";
+  const isUser = params?.user;
+
+  const shipsData = await getShipsData(isDemo, isUser);
 
   function durationCalc(routes: any) {
     if (!routes || routes.length === 0) {
@@ -47,11 +65,13 @@ export default async function Status() {
       <Header />
       <div className="flex w-auto h-auto m-6 flex-row">
         <SideNavigation />
-        <div className="flex bg-gray-200 m-6 w-auto h-auto">
-          <table className="table-auto w-full">
-            <thead>
-              <tr className="items-center">
-                <th className="px-4 py-2 bg-gray-300 text-center">Name</th>
+        <div className="flex m-6 w-auto h-auto ">
+          <table className="table-auto w-full rounded-lg overflow-hidden border border-gray-300">
+            <thead className="">
+              <tr className="items-center ">
+                <th className="px-4 py-2 bg-gray-300 text-center rounded-tl-lg">
+                  Name
+                </th>
                 <th className="px-4 py-2 bg-gray-300 text-center">Type</th>
                 <th className="px-4 py-2 bg-gray-300 text-center">IMO</th>
                 <th className="px-4 py-2 bg-gray-300 text-center">d.w.</th>
@@ -62,28 +82,27 @@ export default async function Status() {
                 <th className="px-4 py-2 bg-gray-300 text-center">
                   duration in ml
                 </th>
-                <th className="px-4 py-2 bg-gray-300 text-center">
+                <th className="px-4 py-2 bg-gray-300 text-center rounded-tr-lg">
                   ins. passed
                 </th>
               </tr>
             </thead>
             <tbody className="items-center">
-              {allShips.map((ship) => (
+              {shipsData.map((ship: any) => (
                 <tr className="px-4 py-2 text-center" key={ship.id}>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.name}</ShipButton>
                   </td>
-
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.type}</ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.imoNumber}</ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.deadweight}</ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.yearBuilt}</ShipButton>
                   </td>
                   <td
@@ -93,18 +112,18 @@ export default async function Status() {
                   >
                     <ShipButton id={ship.id}>{ship.currentStatus}</ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.portOfRegistry}</ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.ecoStandard}</ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>
                       {durationCalc(ship.routes)}
                     </ShipButton>
                   </td>
-                  <td className="px-4 py-2  align-middle hover:bg-slate-600 hover:text-white">
+                  <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>
                       <img
                         src={getInspectionIcon(ship.inspections)}

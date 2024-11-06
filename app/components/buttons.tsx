@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { tryDemoVersion } from "../handlers/handlers";
+
 
 
 
@@ -26,9 +26,19 @@ export function RegistrationButton() {
 
 export function TryDemoButton() {
   return (
-    <Link href="/status">
-      <button className={buttonStyle} onClick={() => tryDemoVersion(true)}>
+    <Link href="/status?demo=true">
+      <button className={buttonStyle}>
         Try Demo
+      </button>
+    </Link>
+  );
+}
+
+export function TryUserButton() {
+  return (
+    <Link href="/status?user=12312">
+      <button className={buttonStyle}>
+        Try User
       </button>
     </Link>
   );
