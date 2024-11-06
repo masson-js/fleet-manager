@@ -1,17 +1,21 @@
 import Header from "../components/header";
 import ShipButton from "../components/shipButton";
 import SideNavigation from "../components/sideNavigation";
-import demoData from "@/data/ships.json";
-const userData: any = [];
+
+import {
+  durationCalc,
+  getInspectionIcon,
+  getStatusColorClass,
+} from "../helpers/helpers";
+import { getShipsData } from "../handlers/handlers";
+
 
 interface StatusParams {
   demo?: string;
   user?: string;
 }
 
-async function getShipsData(isDemo: boolean, user?: string) {
-  return isDemo ? demoData : userData;
-}
+
 
 export default async function Status({
   searchParams,
@@ -19,46 +23,9 @@ export default async function Status({
   searchParams: StatusParams;
 }) {
   const params = await searchParams;
-
   const isDemo = params?.demo === "true";
   const isUser = params?.user;
-
   const shipsData = await getShipsData(isDemo, isUser);
-
-  function durationCalc(routes: any) {
-    if (!routes || routes.length === 0) {
-      return 0;
-    }
-
-    const totalDuration = routes.reduce((total: any, route: any) => {
-      return total + (route.duration || 0);
-    }, 0);
-
-    return totalDuration;
-  }
-
-  function getInspectionIcon(inspections: any) {
-    if (inspections && inspections.length > 0) {
-      const lastInspection = inspections[inspections.length - 1];
-      return lastInspection.result === "Passed" ? "/passed.png" : "/soon.png";
-    }
-    return "/soon.png";
-  }
-
-  function getStatusColorClass(status: any) {
-    switch (status) {
-      case "On the Way":
-        return "bg-green-500 text-white";
-      case "In Port":
-        return "bg-blue-500 text-white";
-      case "In Service":
-        return "bg-yellow-500 text-white";
-      case "Delayed":
-        return "bg-red-500 text-white";
-      default:
-        return "bg-gray-300";
-    }
-  }
 
   return (
     <div className="flex flex-col">
