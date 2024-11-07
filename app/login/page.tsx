@@ -1,9 +1,27 @@
-import Loginform from "../components/forms/loginform";
+import LoginForm from "../components/forms/loginform";
 
-export default function LoginPage() {
+
+export default function LogIn() {
   return (
-    <div className="flex flex-col w-full h-auto">
-      <Loginform />
-    </div>
+    <main className="flex w-full h-screen">
+      <div className="relative flex w-1/2 items-center flex-col bg-gray-200 text-gray-800">
+        <div className="absolute inset-0 bg-[url('/background.jpg')] bg-cover bg-center opacity-15 z-0"></div>
+
+        <div className="relative z-10 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-24 my-4 mx-12 opacity-75">
+            Log In to
+          </h1>
+          <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] mx-12 my-10 font-bold">
+            Fleet Manager
+          </h2>
+          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mx-12 my-4 italic opacity-75">
+            application for navigation in your marine business
+          </h3>
+        </div>
+      </div>
+      <div className="flex-1 flex items-center justify-center bg-green-300">
+        <LoginForm />
+      </div>
+    </main>
   );
 }

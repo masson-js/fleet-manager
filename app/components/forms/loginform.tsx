@@ -15,35 +15,49 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="relative flex w-full h-screen items-start justify-center bg-gray-200 text-gray-800">
-      <div className="absolute inset-0 w-full h-full bg-[url('/background.jpg')] bg-cover bg-center opacity-15"></div>
-
+    <div className="flex flex-col relative  w-full h-screen items-center justify-center bg-gray-100 text-gray-800">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="z-10 bg-gray-700 p-4 rounded-lg border-4 text-black mt-10 flex flex-col gap-4 m-6"
+        className="z-10 bg-white p-8 rounded-lg  text-gray-700 flex flex-col items-center gap-6 w-80 max-w-full"
       >
-        {/* Login input */}
+        <h2 className="text-2xl font-semibold text-gray-800">Login</h2>
+
         <input
-          {...register("login", { required: "This field is required" })}
+          {...register("login", { required: "Login is required" })}
           placeholder="Login"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
         />
-        {/* Error for login field */}
-        {errors.login && <span>Error</span>}
-
-        {/* Password input */}
+        {typeof errors.login?.message === "string" && (
+          <span className="text-sm text-red-600">{errors.login.message}</span>
+        )}
         <input
-          {...register("password", { required: "This field is required" })}
+          {...register("password", { required: "Password is required" })}
+          type="password"
           placeholder="Password"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
         />
-        {/* Error for password field */}
-        {errors.epassword && <span>Error</span>}
-
-        {/* Submit button */}
-        <input type="submit" className="text-white hover:cursor-pointer" />
+        {typeof errors.password?.message === "string" && (
+          <span className="text-sm text-red-600">
+            {errors.password.message}
+          </span>
+        )}
+        <button
+          type="submit"
+          className="w-full bg-gray-400 text-white py-2 rounded-md hover:bg-black transition duration-150"
+        >
+          Submit
+        </button>
       </form>
-
-      {/* Link to home page */}
-      <div></div>
+      <div className="z-10 bg-white px-8 pb-8 rounded-lg text-gray-700 flex flex-col items-center gap-6 w-80 max-w-full">
+        <h2 className="text-black">Dont have an Account?</h2>
+        <button className="w-full mx-14 bg-gray-500 text-white py-2 rounded-md hover:bg-black transition duration-150">
+          <Link href="/registration">Sign Up</Link>
+        </button>
+        <h2 className="text-black">or</h2>
+        <button className="w-full mx-14 bg-gray-400 text-white py-2 rounded-md hover:bg-black transition duration-150">
+          <Link href="/">Go to Home Page</Link>
+        </button>
+      </div>
     </div>
   );
 }
