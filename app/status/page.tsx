@@ -11,9 +11,11 @@ import { getShipsData } from "../handlers/handlers";
 
 
 interface StatusParams {
-  demo?: string;
-  user?: string;
+  demo?: any;
+  user?: any;
 }
+
+
 
 
 
@@ -26,12 +28,14 @@ export default async function Status({
   const isDemo = params?.demo === "true";
   const isUser = params?.user;
   const shipsData = await getShipsData(isDemo, isUser);
+ 
+ 
 
   return (
     <div className="flex flex-col">
       <Header />
       <div className="flex w-auto h-auto m-6 flex-row">
-        <SideNavigation />
+        <SideNavigation demo={isDemo} user={isUser}/>
         <div className="flex m-6 w-auto h-auto ">
           <table className="table-auto w-full rounded-lg overflow-hidden border border-gray-300">
             <thead className="">
@@ -58,16 +62,16 @@ export default async function Status({
               {shipsData.map((ship: any) => (
                 <tr className="px-4 py-2 text-center" key={ship.id}>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
-                    <ShipButton id={ship.id}>{ship.name}</ShipButton>
+                    <ShipButton   id={ship.id}>{ship.name}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
-                    <ShipButton id={ship.id}>{ship.type}</ShipButton>
+                    <ShipButton  id={ship.id}>{ship.type}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.imoNumber}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
-                    <ShipButton id={ship.id}>{ship.deadweight}</ShipButton>
+                    <ShipButton  id={ship.id}>{ship.deadweight}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.yearBuilt}</ShipButton>
@@ -77,21 +81,21 @@ export default async function Status({
                       ship.currentStatus
                     )}`}
                   >
-                    <ShipButton id={ship.id}>{ship.currentStatus}</ShipButton>
+                    <ShipButton  id={ship.id}>{ship.currentStatus}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
                     <ShipButton id={ship.id}>{ship.portOfRegistry}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
-                    <ShipButton id={ship.id}>{ship.ecoStandard}</ShipButton>
+                    <ShipButton  id={ship.id}>{ship.ecoStandard}</ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
-                    <ShipButton id={ship.id}>
+                    <ShipButton  id={ship.id}>
                       {durationCalc(ship.routes)}
                     </ShipButton>
                   </td>
                   <td className="px-4 py-2 align-middle hover:bg-slate-600 hover:text-white">
-                    <ShipButton id={ship.id}>
+                    <ShipButton  id={ship.id}>
                       <img
                         src={getInspectionIcon(ship.inspections)}
                         alt="Inspection Status"

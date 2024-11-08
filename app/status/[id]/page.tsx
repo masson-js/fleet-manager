@@ -2,7 +2,7 @@ import { findShipById } from "@/app/handlers/handlers";
 
 interface ShipParams {
   params: {
-    id: string; // Предполагаем, что id — это строка
+    id: string;
   };
 }
 

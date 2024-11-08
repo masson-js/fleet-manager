@@ -1,13 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SideNavigation() {
+interface PropsParams {
+  demo: any;
+  user: string;
+}
+
+export default function SideNavigation({ demo, user }: PropsParams) {
+  let userData = user;
+  function propsStateSwitch() {
+    let url = "";
+    if (demo) {
+      url += "?demo=true";
+    }
+    return url;
+  }
   const buttonStyle = "flex m-2 px-2 justify-start hover:underline";
   return (
     <section className="flex">
       <ul className="flex flex-col justify-start mt-6">
         <li className={buttonStyle}>
-          <Link href="/status" className="flex flex-row">
+          <Link href={`/status${propsStateSwitch()}`} className="flex flex-row">
             <Image
               src="/status.png"
               alt="Status Icon"
@@ -15,11 +28,14 @@ export default function SideNavigation() {
               width={24}
               height={24}
             />
-            Status
+            Status 
           </Link>
         </li>
         <li className={buttonStyle}>
-          <Link href="/fleetonmap" className="flex flex-row">
+          <Link
+            href={`/fleetonmap${propsStateSwitch()}`}
+            className="flex flex-row"
+          >
             <Image
               src="/map.png"
               alt="Map Icon"
@@ -44,35 +60,38 @@ export default function SideNavigation() {
         </li>
         <li className={buttonStyle}>
           <Link href="/logbooks" className="flex flex-row">
-          <Image
+            <Image
               src="/logbook.png"
               alt="Logbook Icon"
               className="w-6 h-6 mr-2"
               width={24}
               height={24}
-            />Logbooks
+            />
+            Logbooks 
           </Link>
         </li>
         <li className={buttonStyle}>
-          <Link href="/fixtures" className="flex flex-row">
-          <Image
+          <Link href={`/fixtures${propsStateSwitch()}`} className="flex flex-row">
+            <Image
               src="/hands.png"
               alt="fixtures Icon"
               className="w-6 h-6 mr-2"
               width={24}
               height={24}
-            />Fixtures
+            />
+            Fixtures
           </Link>
         </li>
         <li className={buttonStyle}>
           <Link href="/crews" className="flex flex-row">
-          <Image
+            <Image
               src="/crews.png"
               alt="crews Icon"
               className="w-6 h-6 mr-2"
               width={24}
               height={24}
-            />Crews
+            />
+            Crews
           </Link>
         </li>
       </ul>
