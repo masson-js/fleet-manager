@@ -3,15 +3,21 @@ import Link from "next/link";
 
 interface PropsParams {
   demo: any;
-  user: string;
+  user: any;
 }
 
 export default function SideNavigation({ demo, user }: PropsParams) {
-  let userData = user;
   function propsStateSwitch() {
     let url = "";
+
     if (demo) {
       url += "?demo=true";
+    } else if (user) {
+      if (url) {
+        url += `&user=${user}`;
+      } else {
+        url += `?user=${user}`;
+      }
     }
     return url;
   }
@@ -28,7 +34,7 @@ export default function SideNavigation({ demo, user }: PropsParams) {
               width={24}
               height={24}
             />
-            Status 
+            Status
           </Link>
         </li>
         <li className={buttonStyle}>
@@ -47,7 +53,7 @@ export default function SideNavigation({ demo, user }: PropsParams) {
           </Link>
         </li>
         <li className={buttonStyle}>
-          <Link href="/inspections" className="flex flex-row">
+          <Link href={`/inspections${propsStateSwitch()}`} className="flex flex-row">
             <Image
               src="/document.png"
               alt="Inspection Icon"
@@ -59,7 +65,7 @@ export default function SideNavigation({ demo, user }: PropsParams) {
           </Link>
         </li>
         <li className={buttonStyle}>
-          <Link href="/logbooks" className="flex flex-row">
+          <Link href={`/logbooks${propsStateSwitch()}`} className="flex flex-row">
             <Image
               src="/logbook.png"
               alt="Logbook Icon"
@@ -67,11 +73,14 @@ export default function SideNavigation({ demo, user }: PropsParams) {
               width={24}
               height={24}
             />
-            Logbooks 
+            Logbooks
           </Link>
         </li>
         <li className={buttonStyle}>
-          <Link href={`/fixtures${propsStateSwitch()}`} className="flex flex-row">
+          <Link
+            href={`/fixtures${propsStateSwitch()}`}
+            className="flex flex-row"
+          >
             <Image
               src="/hands.png"
               alt="fixtures Icon"
@@ -83,7 +92,7 @@ export default function SideNavigation({ demo, user }: PropsParams) {
           </Link>
         </li>
         <li className={buttonStyle}>
-          <Link href="/crews" className="flex flex-row">
+          <Link href={`/crews${propsStateSwitch()}`} className="flex flex-row">
             <Image
               src="/crews.png"
               alt="crews Icon"

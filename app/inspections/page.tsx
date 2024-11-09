@@ -1,11 +1,27 @@
+import { redirect } from "next/navigation";
 import SideNavigation from "../components/sideNavigation";
+import { getShipsData } from "../handlers/handlers";
+interface StatusParams {
+  demo?: any;
+  user?: any;
+}
 
+export default async function Inspections({
+  searchParams,
+}: {
+  searchParams: StatusParams;
+}) {
+  const params = await searchParams;
+  const isDemo = params?.demo === "true";
+  const isUser = params?.user;
+  const shipsData = await getShipsData(isDemo, isUser);
+  console.log(isUser);
 
-export default function Inspections() {
+  if (!isDemo && isUser === undefined) redirect(`/error/nofoundpage`)
   return (
     <div>
-      <SideNavigation/>
+      <SideNavigation demo={isDemo} user={isUser} />
       <p>Inspections page</p>
     </div>
-  )
+  );
 }
